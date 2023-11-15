@@ -1,0 +1,22 @@
+#Create a function f(x) and then integrate
+
+function f(x::Float64)
+    return 2. + sin(2*sqrt(x))
+end
+
+
+function trap(a::Float64, b::Float64, M::Int64, func::Function)
+    h = (b-a)/M
+    sum = 0        
+    for n in 0:M
+        sum = sum + func(a+n*h)  
+    end   
+    return h*sum+h/2*(func(a)+func(b))    
+end
+    
+function simp(a::Float64, b::Float64, M::Int64, func::Function)
+    
+end
+
+#Part a: Trapezoidal rule for 10 points 
+trap(1.,6.,10, f)
